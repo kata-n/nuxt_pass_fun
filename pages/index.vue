@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import InputmakingBox from "~/components/InputmakingBox.vue";
+import InputmakingBox from "@/components/InputmakingBox.vue";
 
 export default Vue.extend({
   components: {
