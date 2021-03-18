@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input ref="inputPassword" class="input__box" type="text" />
+    <input class="input__box" v-bind:type="textPass" />
     <button type="button" @click="chageVisible">表示切り替え</button>
   </div>
 </template>
@@ -13,13 +13,14 @@ export default Vue.extend({
   name: "InputmakingBox",
   data() {
     return {
-      inputPassword: "",
+      textPass: "text",
       showPassword: false
     };
   },
   methods: {
     chageVisible: function() {
       this.showPassword = !this.showPassword;
+      this.textPass = this.showPassword ? "text" : "password";
     }
   }
 });
