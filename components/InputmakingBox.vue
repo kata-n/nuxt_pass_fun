@@ -1,11 +1,17 @@
 <template>
-  <div>
-    <input class="input__box" v-bind:type="textPass" ref="passwordStrong" />
-    <br />
-    <button type="button" class="show__btn" @click="chageVisible">
-      {{ showBtnname }}
-    </button>
-    <div>{{ textPass.length }}</div>
+  <div class="pass_container">
+    <div v-bind:class="textColor">
+      <input
+        class="input__box"
+        v-bind:type="textPass"
+        v-model.trim="passwordStrong"
+      />
+      <div>{{ passwordStrong.length }}</div>
+      <br />
+      <button type="button" class="show__btn" @click="chageVisible">
+        {{ showBtnname }}
+      </button>
+    </div>
   </div>
 </template>
 
@@ -18,8 +24,10 @@ export default Vue.extend({
   data() {
     return {
       textPass: "text",
+      textColor: "colorLevel_0",
       showPassword: false,
-      showBtnname: "隠す"
+      showBtnname: "隠す",
+      passwordStrong: ""
     };
   },
   methods: {
@@ -29,7 +37,15 @@ export default Vue.extend({
       this.showBtnname = this.showPassword ? "隠す" : "表示する";
     }
   },
-  computed: {}
+  watch: {
+    passScore() {
+      if (this.passwordStrong.length >= 2) {
+        this.textColor = "colorLevel_" + `${this.passwordStrong.length}`;
+      } else {
+        this.textColor = "colorLevel_" + `${this.passwordStrong.length}`;
+      }
+    }
+  }
 });
 </script>
 
