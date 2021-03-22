@@ -49,7 +49,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style lang="scss" scoped>
 .input__box {
   margin-top: 10px;
   padding: 10px;
