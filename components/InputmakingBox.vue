@@ -59,4 +59,10 @@ export default Vue.extend({
   width: 140px;
   padding: 10px;
 }
+//色を変える
+.colorLevel_ {
+  &1 {
+    background-color: aqua;
+  }
+}
 </style>
