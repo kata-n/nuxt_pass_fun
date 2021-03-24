@@ -62,7 +62,10 @@ export default Vue.extend({
 //色を変える
 .colorLevel_ {
   &1 {
-    background-color: aqua;
+    background-color: #e0f7fa;
+  }
+  &2 {
+    background-color: #b2ebf2;
   }
 }
 </style>
