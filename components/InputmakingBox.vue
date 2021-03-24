@@ -50,6 +50,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.pass_container {
+  width: 100%;
+}
 .input__box {
   margin-top: 10px;
   padding: 10px;
@@ -66,6 +69,9 @@ export default Vue.extend({
   }
   &2 {
     background-color: #b2ebf2;
+  }
+  &3 {
+    background-color: #80deea;
   }
 }
 </style>

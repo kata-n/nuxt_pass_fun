@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div>
+    <div class="pass-field">
       <Logo />
       <client-only>
         <inputmaking-box />
@@ -74,5 +74,9 @@ export default Vue.extend({
 
 .links {
   padding-top: 15px;
+}
+
+.pass-field {
+  width: 100vw;
 }
 </style>
