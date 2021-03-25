@@ -11,6 +11,7 @@
       <button type="button" class="show__btn" @click="chageVisible">
         {{ showBtnname }}
       </button>
+      <p v-text="passResuletmessage"></p>
     </div>
   </div>
 </template>
