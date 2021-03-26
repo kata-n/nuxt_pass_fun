@@ -45,6 +45,12 @@ export default Vue.extend({
       } else {
         this.textColor = "colorLevel_" + `${this.passwordStrong.length}`;
       }
+    },
+    passResuletmessage: function() {
+      let message = "";
+    },
+    passwordMessageCss: function() {
+      const PASSWORD_SCORE = this.passResuletmessage;
     }
   }
 });
