@@ -1,6 +1,6 @@
 <template>
   <div class="pass_container">
-    <div v-bind:class="passScore">
+    <div v-bind:class="backgroundColor">
       <input
         class="input__box"
         v-bind:type="textPass"
@@ -39,7 +39,7 @@ export default Vue.extend({
     }
   },
   computed: {
-    passScore: function(): any {
+    backgroundColor: function(): any {
       //背景の文字列
       if (this.passwordStrong.length > 0) {
         return (this.textColor = `colorLevel_${this.passwordStrong.length}`);
@@ -47,11 +47,12 @@ export default Vue.extend({
         this.textColor = "colorLevel_" + `${this.passwordStrong.length}`;
       }
     },
+    inputPassScore: function() {},
     passResuletmessage: function() {
       let message = "";
     },
     passwordMessageCss: function() {
-      const PASSWORD_SCORE = this.passResuletmessage;
+      const PASSWORD_SCORE: number = 0;
 
       if (PASSWORD_SCORE) {
       }
