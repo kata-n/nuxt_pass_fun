@@ -40,6 +40,7 @@ export default Vue.extend({
   },
   computed: {
     passScore: function(): any {
+      //背景の文字列
       if (this.passwordStrong.length > 0) {
         return (this.textColor = `colorLevel_${this.passwordStrong.length}`);
       } else {
@@ -51,8 +52,12 @@ export default Vue.extend({
     },
     passwordMessageCss: function() {
       const PASSWORD_SCORE = this.passResuletmessage;
+
+      if (PASSWORD_SCORE) {
+      }
     }
-  }
+  },
+  watch: {}
 });
 </script>
 
