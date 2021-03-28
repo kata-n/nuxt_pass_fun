@@ -47,9 +47,17 @@ export default Vue.extend({
         this.textColor = "colorLevel_" + `${this.passwordStrong.length}`;
       }
     },
-    inputPassScore: function() {},
+    inputPassScore: function() {
+      let inputpass_score: number = 0;
+
+      if (this.passwordStrong.length >= 8) {
+        inputpass_score += 10;
+        console.log(inputpass_score);
+      }
+    },
     passResuletmessage: function() {
       let message = "";
+      const PASSWORD_SCORE = this.inputPassScore;
     },
     passwordMessageCss: function() {
       const PASSWORD_SCORE: number = 0;
