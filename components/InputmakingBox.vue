@@ -54,6 +54,10 @@ export default Vue.extend({
         inputpass_score += 10;
         console.log(inputpass_score);
       }
+
+      const password_patterns = [
+        /\d/ //0-9までのどれかあるか
+      ];
     },
     passResuletmessage: function() {
       let message = "";
