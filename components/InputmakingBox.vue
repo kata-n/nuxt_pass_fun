@@ -56,7 +56,9 @@ export default Vue.extend({
       }
 
       const password_patterns = [
-        /\d/ //0-9までのどれかあるか
+        /\d/, //0-9までのどれかあるか
+        /[a-z]/, //小文字アルファベットがあるか
+        /[A-Z]/ //大文字アルファベットがあるかs
       ];
     },
     passResuletmessage: function() {
