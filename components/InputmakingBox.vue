@@ -58,8 +58,17 @@ export default Vue.extend({
       const password_patterns = [
         /\d/, //0-9までのどれかあるか
         /[a-z]/, //小文字アルファベットがあるか
-        /[A-Z]/ //大文字アルファベットがあるかs
+        /[A-Z]/ //大文字アルファベットがあるか
       ];
+
+      password_patterns.forEach(password_patterns => {
+        if (this.passwordStrong.match(password_patterns)) {
+          inputpass_score += 10;
+        }
+      });
+
+      //スコア確認
+      console.log(inputpass_score);
     },
     passResuletmessage: function() {
       let message = "";
