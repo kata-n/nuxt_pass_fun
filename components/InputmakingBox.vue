@@ -77,13 +77,26 @@ export default Vue.extend({
 
       error_password_patterns.forEach(error_password_patterns => {
         if (this.passwordStrong.match(error_password_patterns)) {
-          console.log("ひらがなあるわ");
+          console.log("ひらがなorカタカナあるわ");
         }
       });
+
+      return inputpass_score;
     },
     passResuletmessage: function() {
       let message = "";
       const PASSWORD_SCORE = this.inputPassScore;
+
+      switch (PASSWORD_SCORE) {
+        case 10:
+          console.log("10点です");
+          break;
+        case 20:
+          console.log("20点です");
+          break;
+        default:
+          console.log("sonota");
+      }
     },
     passwordMessageCss: function() {
       const PASSWORD_SCORE: number = 0;
