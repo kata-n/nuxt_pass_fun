@@ -69,6 +69,17 @@ export default Vue.extend({
 
       //スコア確認
       console.log(inputpass_score);
+
+      const error_password_patterns = [
+        /[\u3041-\u3096]/, //ひらがながあるか
+        /[\u30A1-\u30FA]/ //カタカナあるか
+      ];
+
+      error_password_patterns.forEach(error_password_patterns => {
+        if (this.passwordStrong.match(error_password_patterns)) {
+          console.log("ひらがなあるわ");
+        }
+      });
     },
     passResuletmessage: function() {
       let message = "";
