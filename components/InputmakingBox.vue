@@ -101,7 +101,8 @@ export default Vue.extend({
     passwordMessageCss: function() {
       const PASSWORD_SCORE: number = 0;
 
-      if (PASSWORD_SCORE) {
+      if (PASSWORD_SCORE >= 50) {
+        this.textColor = "score_label_50";
       }
     }
   },
