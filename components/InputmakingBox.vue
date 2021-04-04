@@ -96,8 +96,10 @@ export default Vue.extend({
           break;
         case 30:
           console.log("30点です");
+          break;
         case 40:
           console.log("40点です");
+          break;
         default:
           console.log("sonota");
       }
