@@ -90,6 +90,8 @@ export default Vue.extend({
       switch (PASSWORD_SCORE) {
         case 10:
           console.log("10点です");
+          let passwordscore : number = 10
+          this.passwordMessageCss(passwordscore):void;
           break;
         case 20:
           console.log("20点です");
@@ -104,7 +106,7 @@ export default Vue.extend({
           console.log("sonota");
       }
     },
-    passwordMessageCss: function() {
+    passwordMessageCss: function(score: number): void {
       const PASSWORD_SCORE: number = 0;
 
       if (PASSWORD_SCORE >= 50) {
