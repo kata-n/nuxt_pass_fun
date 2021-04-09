@@ -28,7 +28,8 @@ export default Vue.extend({
       textColor: "colorLevel_0",
       showPassword: false,
       showBtnname: "隠す",
-      passwordStrong: ""
+      passwordStrong: "",
+      passwordmessage: ""
     };
   },
   methods: {
@@ -48,6 +49,7 @@ export default Vue.extend({
       }
     },
     inputPassScore: function() {
+      //強力具合を数値化
       let inputpass_score: number = 0;
 
       if (this.passwordStrong.length >= 8) {
@@ -58,12 +60,13 @@ export default Vue.extend({
       const password_patterns = [
         /\d/, //0-9までのどれかあるか
         /[a-z]/, //小文字アルファベットがあるか
-        /[A-Z]/ //大文字アルファベットがあるか
+        /[A-Z]/, //大文字アルファベットがあるか
+        /\#/
       ];
 
       password_patterns.forEach(password_patterns => {
         if (this.passwordStrong.match(password_patterns)) {
-          inputpass_score += 10;
+          inputpass_score += 5;
         }
       });
 
@@ -83,28 +86,35 @@ export default Vue.extend({
 
       return inputpass_score;
     },
-    passResuletmessage: function(): void {
-      let message = "";
+    passResuletmessage: function() {
       const PASSWORD_SCORE = this.inputPassScore;
+      let passwordmessage: string = "";
 
       switch (PASSWORD_SCORE) {
-        case 10:
-          console.log("10点です");
-          let passwordscore: number = 10;
-          // this.passwordMessageCss(passwordscore);
+        case 5:
+          console.log("まだまだいける");
+          passwordmessage = "まだまだいける";
           break;
-        case 20:
-          console.log("20点です");
+        case 10:
+          console.log("まだ強くなる");
+          passwordmessage = "まだ強くなる";
+          break;
+        case 15:
+          console.log("ふつうだよ");
+          passwordmessage = "ふつうだよ";
+          break;
+        case 20 || 25:
+          console.log("いい感じ！");
+          passwordmessage = "いい感じ！";
           break;
         case 30:
-          console.log("30点です");
-          break;
-        case 40:
-          console.log("40点です");
+          passwordmessage = "これでいける";
           break;
         default:
-          console.log("sonota");
+          console.log("計測不能");
       }
+
+      return passwordmessage;
     },
     passwordMessageCss: function(): void {
       const PASSWORD_SCORE: number = 0;
