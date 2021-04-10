@@ -61,7 +61,8 @@ export default Vue.extend({
         /\d/, //0-9までのどれかあるか
         /[a-z]/, //小文字アルファベットがあるか
         /[A-Z]/, //大文字アルファベットがあるか
-        /\#/ //#を使っているか
+        /\#/, //#を使っているか
+        /\!/ //!を使っているか
       ];
 
       password_patterns.forEach(password_patterns => {
