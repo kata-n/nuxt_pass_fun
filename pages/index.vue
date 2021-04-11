@@ -5,7 +5,6 @@
       <client-only>
         <inputmaking-box />
       </client-only>
-
       <div class="links">
         <a
           href="https://nuxtjs.org/"

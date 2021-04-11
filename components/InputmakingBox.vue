@@ -11,6 +11,11 @@
       <button type="button" class="show__btn" @click="chageVisible">
         {{ showBtnname }}
       </button>
+      <br />
+      <div class="cindiffe">
+        <button @click="start">紙吹雪はじめる！</button>
+        <button @click="stoping">紙吹雪やめる！</button>
+      </div>
       <p :class="passwordMessageCss" v-text="passResuletmessage"></p>
     </div>
   </div>
@@ -37,6 +42,14 @@ export default Vue.extend({
       this.showPassword = !this.showPassword;
       this.textPass = this.showPassword ? "text" : "password";
       this.showBtnname = this.showPassword ? "隠す" : "表示する";
+    },
+    start: function() {
+      // @ts-ignore: Unreachable code error
+      this.$confetti.start();
+    },
+    stoping: function() {
+      // @ts-ignore: Unreachable code error
+      this.$confetti.stop();
     }
   },
   computed: {
