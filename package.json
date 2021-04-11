@@ -27,7 +27,8 @@
     "eslint": "^7.10.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "node-sass": "^5.0.0",
-    "sass-loader": "10.1.1"
+    "sass-loader": "10.1.1",
+    "vue-confetti": "^2.2.1"
   },
   "config": {
     "nuxt": {
