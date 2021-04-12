@@ -6,15 +6,14 @@
         v-bind:type="textPass"
         v-model.trim="passwordStrong"
       />
-      <div>{{ passwordStrong.length }}</div>
+      <div>入力文字数：{{ passwordStrong.length }}文字</div>
       <br />
       <button type="button" class="show__btn" @click="chageVisible">
         {{ showBtnname }}
       </button>
       <br />
       <div class="cindiffe">
-        <button @click="start">紙吹雪はじめる！</button>
-        <button @click="stoping">紙吹雪やめる！</button>
+        <button @click="stoping">紙吹雪やめる</button>
       </div>
       <p :class="passwordMessageCss" v-text="passResuletmessage"></p>
     </div>
@@ -85,7 +84,7 @@ export default Vue.extend({
       });
 
       //スコア確認
-      console.log(inputpass_score);
+      // console.log(inputpass_score);
 
       const error_password_patterns = [
         /[\u3041-\u3096]/, //ひらがながあるか
@@ -122,7 +121,7 @@ export default Vue.extend({
           passwordmessage = "いい感じ！";
           break;
         case 30:
-          passwordmessage = "これでいける";
+          passwordmessage = "これでOK！！大丈夫！！";
           break;
         default:
           console.log("計測不能");
@@ -138,7 +137,16 @@ export default Vue.extend({
       }
     }
   },
-  watch: {}
+  watch: {
+    inputPassScore: {
+      handler: function(id, oldId) {
+        if (this.inputPassScore === 30) {
+          // @ts-ignore: Unreachable code error
+          this.$confetti.start();
+        }
+      }
+    }
+  }
 });
 </script>
 
