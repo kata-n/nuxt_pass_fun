@@ -143,6 +143,10 @@ export default Vue.extend({
         if (this.inputPassScore === 30) {
           // @ts-ignore: Unreachable code error
           this.$confetti.start();
+          setTimeout(() => {
+            // @ts-ignore: Unreachable code error
+            this.$confetti.stop();
+          }, 100);
         }
       }
     }
