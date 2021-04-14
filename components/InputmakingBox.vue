@@ -6,15 +6,12 @@
         v-bind:type="textPass"
         v-model.trim="passwordStrong"
       />
-      <div>入力文字数：{{ passwordStrong.length }}文字</div>
+      <p>入力文字数：{{ passwordStrong.length }}文字</p>
       <br />
       <button type="button" class="show__btn" @click="chageVisible">
         {{ showBtnname }}
       </button>
       <br />
-      <div class="cindiffe">
-        <button @click="stoping">紙吹雪やめる</button>
-      </div>
       <p :class="passwordMessageCss" v-text="passResuletmessage"></p>
     </div>
   </div>
@@ -146,7 +143,7 @@ export default Vue.extend({
           setTimeout(() => {
             // @ts-ignore: Unreachable code error
             this.$confetti.stop();
-          }, 100);
+          }, 3000);
         }
       }
     }
@@ -163,9 +160,10 @@ export default Vue.extend({
   padding: 10px;
 }
 .show__btn {
-  margin: 20px;
+  margin: 10px 20px;
   width: 140px;
   padding: 10px;
+  background-color: beige;
 }
 //色を変える
 .colorLevel_ {
