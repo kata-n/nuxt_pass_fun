@@ -45,12 +45,13 @@ export default Vue.extend({
 }
 */
 .container {
-  margin: 0 auto;
   min-height: 100vh;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-image: linear-gradient(to right, #2af598 0%, #009efd 100%);
 }
 
 .title {
@@ -76,6 +77,9 @@ export default Vue.extend({
 }
 
 .pass-field {
-  width: 100vw;
+  width: 80%;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 </style>
