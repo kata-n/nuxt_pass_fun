@@ -8,6 +8,10 @@
       />
       <p>入力文字数：{{ passwordStrong.length }}文字</p>
       <br />
+      <template>
+        <div><button type="button">コピーする</button></div>
+      </template>
+      <br />
       <button type="button" class="show__btn" @click="chageVisible">
         {{ showBtnname }}
       </button>
