@@ -34,6 +34,9 @@ import InputmakingBox from "@/components/InputmakingBox.vue";
 export default Vue.extend({
   components: {
     InputmakingBox
+  },
+  methods: {
+    backgroundcolorlevel() {}
   }
 });
 </script>

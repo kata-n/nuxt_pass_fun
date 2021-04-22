@@ -106,19 +106,19 @@ export default Vue.extend({
 
       switch (PASSWORD_SCORE) {
         case 5:
-          console.log("まだまだいける");
+          // console.log("まだまだいける");
           passwordmessage = "まだまだいける";
           break;
         case 10:
-          console.log("まだ強くなる");
+          // console.log("まだ強くなる");
           passwordmessage = "まだ強くなる";
           break;
         case 15:
-          console.log("ふつうだよ");
+          // console.log("ふつうだよ");
           passwordmessage = "ふつうだよ";
           break;
         case 20 || 25:
-          console.log("いい感じ！");
+          // console.log("いい感じ！");
           passwordmessage = "いい感じ！";
           break;
         case 30:
@@ -149,6 +149,11 @@ export default Vue.extend({
             this.$confetti.stop();
           }, 3000);
         }
+      }
+    },
+    textColor: {
+      handler: function(id, oldId) {
+        this.$emit("backgroundcolorlevel", this.textColor);
       }
     }
   }
