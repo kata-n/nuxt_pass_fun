@@ -174,16 +174,4 @@ export default Vue.extend({
   padding: 10px;
   background-color: beige;
 }
-//色を変える
-.colorLevel_ {
-  &1 {
-    background-color: #e0f7fa;
-  }
-  &2 {
-    background-color: #b2ebf2;
-  }
-  &3 {
-    background-color: #80deea;
-  }
-}
 </style>

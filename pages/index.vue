@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
+  <div class="container" v-bind:class="backgroundColor">
     <div class="pass-field">
       <Logo />
       <client-only>
-        <inputmaking-box />
+        <InputmakingBox @backgroundcolorlevel="addtodo" />
       </client-only>
       <div class="links">
         <a
@@ -32,16 +32,23 @@ import Vue from "vue";
 import InputmakingBox from "@/components/InputmakingBox.vue";
 
 export default Vue.extend({
+  data() {
+    return {
+      backgroundColor: ""
+    };
+  },
   components: {
     InputmakingBox
   },
   methods: {
-    backgroundcolorlevel() {}
+    addtodo(message: any) {
+      this.backgroundColor = message;
+    }
   }
 });
 </script>
 
-<style>
+<style lang="scss" scoped>
 /* Sample `apply` at-rules with Tailwind CSS
 .container {
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
@@ -55,6 +62,19 @@ export default Vue.extend({
   align-items: center;
   text-align: center;
   background-image: linear-gradient(to right, #2af598 0%, #009efd 100%);
+}
+
+//色を変える
+.colorLevel_ {
+  &1 {
+    background-image: linear-gradient(to right, #d4fc79 0%, #96e6a1 100%);
+  }
+  &2 {
+    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+  }
+  &3 {
+    background-image: linear-gradient(to right, #cc208e 0%, #6713d2 100%);
+  }
 }
 
 .title {
