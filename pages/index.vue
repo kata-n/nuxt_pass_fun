@@ -3,7 +3,7 @@
     <div class="pass-field">
       <Logo />
       <client-only>
-        <InputmakingBox @backgroundcolorlevel="addtodo" />
+        <InputmakingBox @backgroundcolorlevel="changeColor" />
       </client-only>
       <div class="links">
         <a
@@ -41,7 +41,7 @@ export default Vue.extend({
     InputmakingBox
   },
   methods: {
-    addtodo(message: any) {
+    changeColor(message: any) {
       this.backgroundColor = message;
     }
   }
@@ -62,6 +62,7 @@ export default Vue.extend({
   align-items: center;
   text-align: center;
   background-image: linear-gradient(to right, #2af598 0%, #009efd 100%);
+  transition: 0.5s;
 }
 
 //色を変える
@@ -69,11 +70,29 @@ export default Vue.extend({
   &1 {
     background-image: linear-gradient(to right, #d4fc79 0%, #96e6a1 100%);
   }
+  &1::after {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    transition-duration: 1s;
+    opacity: 0;
+    background-image: linear-gradient(135deg, #f2d50f 0%, #da0641 100%);
+  }
   &2 {
     background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+    transition: 0.2s;
   }
   &3 {
     background-image: linear-gradient(to right, #cc208e 0%, #6713d2 100%);
+    transition: 0.2s;
+  }
+  &4 {
+    background-image: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+    transition: 0.2s;
   }
 }
 
@@ -104,5 +123,6 @@ export default Vue.extend({
   margin: 40px auto;
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.2);
+  min-height: 80%;
 }
 </style>
