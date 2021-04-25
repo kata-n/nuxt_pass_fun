@@ -67,31 +67,27 @@ export default Vue.extend({
 
 //色を変える
 .colorLevel_ {
-  &1 {
+  &5 {
     background-image: linear-gradient(to right, #d4fc79 0%, #96e6a1 100%);
   }
-  &1::after {
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    transition-duration: 1s;
-    opacity: 0;
-    background-image: linear-gradient(135deg, #f2d50f 0%, #da0641 100%);
-  }
-  &2 {
+  &10 {
     background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
     transition: 0.2s;
   }
-  &3 {
+  &15 {
     background-image: linear-gradient(to right, #cc208e 0%, #6713d2 100%);
     transition: 0.2s;
   }
-  &4 {
+  &20 {
     background-image: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+    transition: 0.2s;
+  }
+  &25 {
+    background-image: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+    transition: 0.2s;
+  }
+  &30 {
+    background-image: linear-gradient(to right, #fff 0%, #000 100%);
     transition: 0.2s;
   }
 }

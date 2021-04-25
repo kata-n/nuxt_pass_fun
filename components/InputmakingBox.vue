@@ -34,7 +34,8 @@ export default Vue.extend({
       showPassword: false,
       showBtnname: "隠す",
       passwordStrong: "",
-      passwordmessage: ""
+      passwordmessage: "",
+      passwordStrong2: 0
     };
   },
   methods: {
@@ -56,18 +57,19 @@ export default Vue.extend({
     backgroundColor: function(): any {
       //背景の文字列
       if (this.passwordStrong.length > 0) {
-        return (this.textColor = `colorLevel_${this.passwordStrong.length}`);
+        return (this.textColor = `colorLevel_${this.passwordStrong2}`);
       } else {
-        this.textColor = "colorLevel_" + `${this.passwordStrong.length}`;
+        this.textColor = "colorLevel_" + `${this.passwordStrong2}`;
       }
     },
     inputPassScore: function() {
       //強力具合を数値化
       let inputpass_score: number = 0;
+      this.passwordStrong2 = 0;
 
       if (this.passwordStrong.length >= 8) {
         inputpass_score += 10;
-        console.log(inputpass_score);
+        this.passwordStrong2 += 10;
       }
 
       const password_patterns = [
@@ -81,11 +83,9 @@ export default Vue.extend({
       password_patterns.forEach(password_patterns => {
         if (this.passwordStrong.match(password_patterns)) {
           inputpass_score += 5;
+          this.passwordStrong2 += 5;
         }
       });
-
-      //スコア確認
-      // console.log(inputpass_score);
 
       const error_password_patterns = [
         /[\u3041-\u3096]/, //ひらがながあるか
@@ -98,11 +98,15 @@ export default Vue.extend({
         }
       });
 
+      //スコア確認
+      console.log("スコア確認", inputpass_score);
+      console.log("テスト進捗確認", this.passwordStrong2);
+
       return inputpass_score;
     },
     passResuletmessage: function() {
       const PASSWORD_SCORE = this.inputPassScore;
-      let passwordmessage: string = "";
+      let passwordmessage: string = "パスワードを入力してね！！";
 
       switch (PASSWORD_SCORE) {
         case 5:
@@ -117,9 +121,13 @@ export default Vue.extend({
           // console.log("ふつうだよ");
           passwordmessage = "ふつうだよ";
           break;
-        case 20 || 25:
+        case 20:
           // console.log("いい感じ！");
           passwordmessage = "いい感じ！";
+          break;
+        case 25:
+          // console.log("いい感じ！");
+          passwordmessage = "もう一息！！";
           break;
         case 30:
           passwordmessage = "これでOK！！大丈夫！！";
