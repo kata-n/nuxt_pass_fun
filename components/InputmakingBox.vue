@@ -1,6 +1,11 @@
 <template>
   <div class="pass_container">
     <div v-bind:class="backgroundColor">
+      <div
+        class="pass__title"
+        :class="passwordMessageCss"
+        v-text="passResuletmessage"
+      ></div>
       <input
         class="input__box"
         v-bind:type="textPass"
@@ -8,15 +13,14 @@
       />
       <p>入力文字数：{{ passwordStrong.length }}文字</p>
       <br />
-      <template>
-        <div><button type="button">コピーする</button></div>
-      </template>
+      <div class="copy__field">
+        <button class="copy__button" type="button">コピーする</button>
+      </div>
       <br />
       <button type="button" class="show__btn" @click="chageVisible">
         {{ showBtnname }}
       </button>
       <br />
-      <p :class="passwordMessageCss" v-text="passResuletmessage"></p>
     </div>
   </div>
 </template>
@@ -172,10 +176,29 @@ export default Vue.extend({
 .pass_container {
   width: 100%;
 }
+
+.pass__title {
+  font-size: 1.5rem;
+}
+
+.copy {
+  &__field {
+  }
+  &__button {
+    padding: 10px;
+    border: black;
+    background-color: cornsilk;
+    border-radius: 5px;
+  }
+}
+
 .input__box {
+  border: #5e35b1;
+  border-radius: 5px;
   margin-top: 10px;
   padding: 10px;
 }
+
 .show__btn {
   margin: 10px 20px;
   width: 140px;
