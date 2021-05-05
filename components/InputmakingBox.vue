@@ -14,7 +14,9 @@
       <p>入力文字数：{{ passwordStrong.length }}文字</p>
       <br />
       <div class="copy__field">
-        <button class="copy__button" type="button">コピーする</button>
+        <button class="copy__button p-8 bg-orange-400" type="button">
+          コピーする
+        </button>
       </div>
       <br />
       <button type="button" class="show__btn" @click="chageVisible">
