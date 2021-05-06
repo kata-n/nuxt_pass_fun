@@ -14,15 +14,13 @@
       <p>入力文字数：{{ passwordStrong.length }}文字</p>
       <br />
       <div class="copy__field">
-        <button class="copy__button p-8 bg-orange-400" type="button">
+        <button class="copy__button" type="button">
           コピーする
         </button>
+        <button class="show__button" type="button" @click="chageVisible">
+          {{ showBtnname }}
+        </button>
       </div>
-      <br />
-      <button type="button" class="show__btn" @click="chageVisible">
-        {{ showBtnname }}
-      </button>
-      <br />
     </div>
   </div>
 </template>
@@ -185,26 +183,33 @@ export default Vue.extend({
 
 .copy {
   &__field {
+    display: flex;
+    justify-content: center;
   }
   &__button {
+    margin: 10px 15px;
     padding: 10px;
+    width: 140px;
     border: black;
-    background-color: cornsilk;
-    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 8px;
   }
 }
 
 .input__box {
   border: #5e35b1;
   border-radius: 5px;
-  margin-top: 10px;
+  margin: 10px 15px;
   padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
 }
 
-.show__btn {
-  margin: 10px 20px;
+.show__button {
+  margin: 10px 25px;
   width: 140px;
   padding: 10px;
-  background-color: beige;
+  background-color: #fff;
+  border-radius: 8px;
 }
 </style>
