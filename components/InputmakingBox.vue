@@ -1,20 +1,21 @@
 <template>
   <div class="pass_container">
-    <div v-bind:class="backgroundColor">
+    <div :class="backgroundColor">
       <div
         class="pass__title"
         :class="passwordMessageCss"
         v-text="passResuletmessage"
-      ></div>
+      />
       <input
-        class="input__box"
-        v-bind:type="textPass"
         v-model.trim="passwordStrong"
+        class="input__box"
+        :type="textPass"
+        :value="inputText"
       />
       <p>入力文字数：{{ passwordStrong.length }}文字</p>
       <br />
       <div class="copy__field">
-        <button class="copy__button" type="button">
+        <button class="copy__button" type="button" @click="copy">
           コピーする
         </button>
         <button class="show__button" type="button" @click="chageVisible">
@@ -26,7 +27,7 @@
 </template>
 
 <script lang="ts">
-//type scriptはvueをimportしないといけない
+// type scriptはvueをimportしないといけない
 import Vue from "vue";
 
 export default Vue.extend({
@@ -39,35 +40,21 @@ export default Vue.extend({
       showBtnname: "隠す",
       passwordStrong: "",
       passwordmessage: "",
-      passwordStrong2: 0
+      passwordStrong2: 0,
+      inputText: ""
     };
   },
-  methods: {
-    chageVisible: function() {
-      this.showPassword = !this.showPassword;
-      this.textPass = this.showPassword ? "text" : "password";
-      this.showBtnname = this.showPassword ? "隠す" : "表示する";
-    },
-    start: function() {
-      // @ts-ignore: Unreachable code error
-      this.$confetti.start();
-    },
-    stoping: function() {
-      // @ts-ignore: Unreachable code error
-      this.$confetti.stop();
-    }
-  },
   computed: {
-    backgroundColor: function(): any {
-      //背景の文字列
+    backgroundColor(): any {
+      // 背景の文字列
       if (this.passwordStrong.length > 0) {
         return (this.textColor = `colorLevel_${this.passwordStrong2}`);
       } else {
-        this.textColor = "colorLevel_" + `${this.passwordStrong2}`;
+        return (this.textColor = "colorLevel_" + `${this.passwordStrong2}`);
       }
     },
-    inputPassScore: function() {
-      //強力具合を数値化
+    inputPassScore() {
+      // 強力具合を数値化
       let inputpass_score: number = 0;
       this.passwordStrong2 = 0;
 
@@ -77,11 +64,11 @@ export default Vue.extend({
       }
 
       const password_patterns = [
-        /\d/, //0-9までのどれかあるか
-        /[a-z]/, //小文字アルファベットがあるか
-        /[A-Z]/, //大文字アルファベットがあるか
-        /\#/, //#を使っているか
-        /\!/ //!を使っているか
+        /\d/, // 0-9までのどれかあるか
+        /[a-z]/, // 小文字アルファベットがあるか
+        /[A-Z]/, // 大文字アルファベットがあるか
+        /\#/, // #を使っているか
+        /\!/ //! を使っているか
       ];
 
       password_patterns.forEach(password_patterns => {
@@ -92,8 +79,8 @@ export default Vue.extend({
       });
 
       const error_password_patterns = [
-        /[\u3041-\u3096]/, //ひらがながあるか
-        /[\u30A1-\u30FA]/ //カタカナあるか
+        /[\u3041-\u3096]/, // ひらがながあるか
+        /[\u30A1-\u30FA]/ // カタカナあるか
       ];
 
       error_password_patterns.forEach(error_password_patterns => {
@@ -102,13 +89,13 @@ export default Vue.extend({
         }
       });
 
-      //スコア確認
+      // スコア確認
       console.log("スコア確認", inputpass_score);
       console.log("テスト進捗確認", this.passwordStrong2);
 
       return inputpass_score;
     },
-    passResuletmessage: function() {
+    passResuletmessage() {
       const PASSWORD_SCORE = this.inputPassScore;
       let passwordmessage: string = "パスワードを入力してね！！";
 
@@ -142,7 +129,7 @@ export default Vue.extend({
 
       return passwordmessage;
     },
-    passwordMessageCss: function(): void {
+    passwordMessageCss(): void {
       const PASSWORD_SCORE: number = 0;
 
       if (PASSWORD_SCORE >= 50) {
@@ -152,7 +139,7 @@ export default Vue.extend({
   },
   watch: {
     inputPassScore: {
-      handler: function(id, oldId) {
+      handler() {
         if (this.inputPassScore === 30) {
           // @ts-ignore: Unreachable code error
           this.$confetti.start();
@@ -164,9 +151,28 @@ export default Vue.extend({
       }
     },
     textColor: {
-      handler: function(id, oldId) {
+      handler() {
         this.$emit("backgroundcolorlevel", this.textColor);
       }
+    }
+  },
+  methods: {
+    chageVisible() {
+      this.showPassword = !this.showPassword;
+      this.textPass = this.showPassword ? "text" : "password";
+      this.showBtnname = this.showPassword ? "隠す" : "表示する";
+    },
+    start() {
+      // @ts-ignore: Unreachable code error
+      this.$confetti.start();
+    },
+    stoping() {
+      // @ts-ignore: Unreachable code error
+      this.$confetti.stop();
+    },
+    copy() {
+      this.$copyText(this.inputText);
+      console.log("コピー完了", this.inputText);
     }
   }
 });
