@@ -10,7 +10,6 @@
         v-model.trim="passwordStrong"
         class="input__box"
         :type="textPass"
-        :value="inputText"
       />
       <p>入力文字数：{{ passwordStrong.length }}文字</p>
       <br />
@@ -40,8 +39,7 @@ export default Vue.extend({
       showBtnname: "隠す",
       passwordStrong: "",
       passwordmessage: "",
-      passwordStrong2: 0,
-      inputText: ""
+      passwordStrong2: 0
     };
   },
   computed: {
@@ -171,8 +169,8 @@ export default Vue.extend({
       this.$confetti.stop();
     },
     copy() {
-      this.$copyText(this.inputText);
-      console.log("コピー完了", this.inputText);
+      this.$copyText(this.passwordStrong);
+      console.log("コピー完了", this.passwordStrong);
     }
   }
 });
