@@ -1,4 +1,4 @@
 import Vue from "vue";
-import clipboard from "nuxt-clipboard2";
+import clipboard from "vue-clipboard2";
 
 Vue.use(clipboard);

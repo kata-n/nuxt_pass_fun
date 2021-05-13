@@ -17,7 +17,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [{ src: "~/plugins/vue-confetti", mode: "client" }],
+  plugins: [
+    { src: "~/plugins/vue-confetti", mode: "client" },
+    { src: "~/plugins/vue-clipboard2", mode: "client" }
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -33,8 +36,7 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/content
-    "@nuxt/content",
-    "nuxt-clipboard2"
+    "@nuxt/content"
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)

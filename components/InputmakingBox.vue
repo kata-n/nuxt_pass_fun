@@ -15,12 +15,15 @@
       <br />
       <div class="copy__field">
         <button class="copy__button" type="button" @click="copy">
-          コピーする
+          <p>コピーする</p>
         </button>
         <button class="show__button" type="button" @click="chageVisible">
           {{ showBtnname }}
         </button>
       </div>
+    </div>
+    <div v-if="copy_complete" class="copy__field-message">
+      コピーしました！
     </div>
   </div>
 </template>
@@ -39,7 +42,8 @@ export default Vue.extend({
       showBtnname: "隠す",
       passwordStrong: "",
       passwordmessage: "",
-      passwordStrong2: 0
+      passwordStrong2: 0,
+      copy_complete: false
     };
   },
   computed: {
@@ -88,9 +92,8 @@ export default Vue.extend({
       });
 
       // スコア確認
-      console.log("スコア確認", inputpass_score);
-      console.log("テスト進捗確認", this.passwordStrong2);
-
+      // console.log("スコア確認", inputpass_score);
+      // console.log("テスト進捗確認", this.passwordStrong2);
       return inputpass_score;
     },
     passResuletmessage() {
@@ -152,6 +155,11 @@ export default Vue.extend({
       handler() {
         this.$emit("backgroundcolorlevel", this.textColor);
       }
+    },
+    passwordStrong: {
+      handler() {
+        this.copy_complete = false;
+      }
     }
   },
   methods: {
@@ -170,7 +178,7 @@ export default Vue.extend({
     },
     copy() {
       this.$copyText(this.passwordStrong);
-      console.log("コピー完了", this.passwordStrong);
+      this.copy_complete = true;
     }
   }
 });
@@ -215,5 +223,12 @@ export default Vue.extend({
   padding: 10px;
   background-color: #fff;
   border-radius: 8px;
+}
+
+.copy__field-message {
+  height: 20px;
+  & p {
+    height: 20px;
+  }
 }
 </style>
