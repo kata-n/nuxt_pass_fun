@@ -1,6 +1,6 @@
 <template>
   <div class="container" v-bind:class="backgroundColor">
-    <div class="pass-field">
+    <div class="pass-field w-24 min-w-full">
       <Logo />
       <client-only>
         <InputmakingBox @backgroundcolorlevel="changeColor" />
@@ -43,21 +43,21 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: linear-gradient(to right, #2af598 0%, #009efd 100%);
+  background-image: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
   transition: 0.5s;
 }
 
 //色を変える
 .colorLevel_ {
   &5 {
-    background-image: linear-gradient(to right, #d4fc79 0%, #96e6a1 100%);
+    background-image: linear-gradient(to right, #5ee7df 0%, #b490ca 100%);
   }
   &10 {
-    background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+    background-image: linear-gradient(to right, #5ee7df 0%, #b490ca 100%);
     transition: 0.2s;
   }
   &15 {
-    background-image: linear-gradient(to right, #cc208e 0%, #6713d2 100%);
+    background-image: linear-gradient(to right, #96fbc4 0%, #f9f586 100%);
     transition: 0.2s;
   }
   &20 {
@@ -65,11 +65,11 @@ export default Vue.extend({
     transition: 0.2s;
   }
   &25 {
-    background-image: linear-gradient(to right, #ff5858 0%, #f09819 100%);
+    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 100%);
     transition: 0.2s;
   }
   &30 {
-    background-image: linear-gradient(to right, #fff 0%, #000 100%);
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 100%);
     transition: 0.2s;
   }
 }
@@ -102,5 +102,8 @@ export default Vue.extend({
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.2);
   min-height: 80%;
+}
+
+@media screen and (max-width: 420px) {
 }
 </style>

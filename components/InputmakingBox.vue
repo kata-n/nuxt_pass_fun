@@ -2,7 +2,7 @@
   <div class="pass_container">
     <div :class="backgroundColor">
       <div
-        class="pass__title"
+        class="md:text-xl sm:text-sm"
         :class="passwordMessageCss"
         v-text="passResuletmessage"
       />
@@ -13,11 +13,19 @@
       />
       <p>入力文字数：{{ passwordStrong.length }}文字</p>
       <br />
-      <div class="copy__field">
-        <button class="copy__button" type="button" @click="copy">
+      <div class="flex justify-center">
+        <button
+          class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-3 px-4 m-1 rounded p-1"
+          type="button"
+          @click="copy"
+        >
           <p>コピーする</p>
         </button>
-        <button class="show__button" type="button" @click="chageVisible">
+        <button
+          class="bg-red-400 hover:bg-red-500 text-white font-bold py-3 px-4 m-1 rounded p-1"
+          type="button"
+          @click="chageVisible"
+        >
           {{ showBtnname }}
         </button>
       </div>
