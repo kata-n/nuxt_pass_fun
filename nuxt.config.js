@@ -5,6 +5,9 @@ export default {
   router: {
     base: "/nuxt_pass_fun/"
   },
+  generate: {
+    dir: "docs"
+  },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
