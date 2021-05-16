@@ -2,6 +2,9 @@ export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: "static",
   ssr: true,
+  router: {
+    base: "/nuxt_pass_fun/"
+  },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -9,9 +12,16 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      { hid: "description", name: "description", content: "make password" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href:
+          "/nuxt_pass_fun/data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🍣</text></svg>"
+      }
+    ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
