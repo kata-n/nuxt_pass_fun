@@ -2,6 +2,7 @@ export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: "static",
   ssr: true,
+
   router: {
     base: "/nuxt_pass_fun/"
   },
@@ -19,7 +20,7 @@ export default {
         rel: "icon",
         type: "image/x-icon",
         href:
-          "/nuxt_pass_fun/data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🍣</text></svg>"
+          "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:90px;%22>🍣</text></svg>"
       }
     ]
   },
